@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-
+import { Inter, Lato } from 'next/font/google'
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,6 +13,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'Inter': ['Inter'],
+        'Lato': ['Lato'],
+      }
     },
   },
   plugins: [],
