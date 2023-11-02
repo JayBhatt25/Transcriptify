@@ -4,10 +4,10 @@ import {AiOutlineFolder, AiOutlineShareAlt} from  'react-icons/ai'
 import {BsBookmark} from  'react-icons/bs'
 import {TbTrash, TbSettings} from  'react-icons/tb'
 import {BiHelpCircle} from 'react-icons/bi'
-function SidebarMenuItem({bgcolor, iconName}:{
+function SidebarMenuItem({bgcolor, iconName}:Readonly<{
     bgcolor: string
     iconName: string
-}) {
+}>) {
   return (
     <div className={`w-[208px] h-[44px] rounded-[4px] px-4 py-3 gap-1 ${bgcolor && 'bg-[#E0EDFF]' } cursor-pointer`}>
         <div className="left-content flex items-center gap-3">

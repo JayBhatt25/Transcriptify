@@ -9,19 +9,19 @@ function Header() {
      border-b-[1px] px-9">
         <div className="container  w-full 
         max-h-16 h-auto py-3 gap-[10px]">
-            <div className="header__content max-w-[1096px] w-full flex
+            <div className="header__content  w-full flex
              justify-between max-h-10 h-auto">
-                <div className="content__left max-w-[629px] w-auto max-h-10
+                <div className="content__left  w-auto max-h-10
                  h-auto gap-10">
-                    <div className="searchbar w-[629px] h-auto max-h-10">
-                        <div className="Box w-full max-w-[629px] max-h-10
+                    <div className="searchbar w-[600px]  h-auto max-h-10">
+                        <div className="Box w-full  max-h-10
                          h-auto">
-                            <div className="Input w-full max-w-[629px] 
+                            <div className="Input w-full 
                             h-auto max-h-10 gap-2">
                                 <div className="LabelFrame w-full 
-                                max-w-[629px] h-auto max-h-10 gap-1">
+                                 h-auto max-h-10 gap-1">
                                     <div className="InputFrame w-full 
-                                    max-w-[629px] h-auto max-h-10 
+                                     h-auto max-h-10 
                                     rounded-md px-3 py-[10px] gap-3 bg-[#F9FAFB] flex">
                                         <AiOutlineSearch className="w-5 h-5" />
                                         <input className='w-[92px] h-5 text-sm font-normal 
