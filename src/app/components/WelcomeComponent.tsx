@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import {FiUploadCloud} from 'react-icons/fi'
 import {
     Dialog,
@@ -14,13 +14,12 @@ import {BiChevronDown} from 'react-icons/bi'
 import Dropzone from 'react-dropzone'
 import {GrFormClose} from 'react-icons/gr'
 import axios from 'axios'
-const baseUrl = 'https://api.assemblyai.com/v2'
+
 
 function WelcomeComponent() {
     const [Uploadedfiles, setUploadedfiles] = useState(Array<File>)
 
     let fileRead: string | ArrayBuffer | null = null
-
     const [fileReady, setFileReady] = useState(false)
 
     const [loading, setLoading] = useState(false)
@@ -35,7 +34,7 @@ function WelcomeComponent() {
         
     
     
-    const baseUrl: string | undefined = process.env.NEXT_PUBLIC_ASSEMBLY_URL
+    const baseUrl: string  = process.env.NEXT_PUBLIC_ASSEMBLY_URL!
 
     const headers = {
     authorization: process.env.NEXT_PUBLIC_ASSEMBLY_API_TOKEN
@@ -46,6 +45,7 @@ function WelcomeComponent() {
             window.alert('File size cannot exceed 10GB')
             return
         }
+       
         setUploadedfiles(files)
         setFileReady(true)
     }
@@ -72,6 +72,8 @@ function WelcomeComponent() {
             const transcriptionResult = pollingResponse.data
             if (transcriptionResult.status === 'completed') {
                 setResultText(transcriptionResult.text)
+                let utterance = new SpeechSynthesisUtterance(transcriptionResult.text);
+                speechSynthesis.speak(utterance);
                 handleFileReset()
                 break
             } else if (transcriptionResult.status === 'error') {
@@ -98,6 +100,7 @@ function WelcomeComponent() {
             setUploadedfiles([])
             setFileReady(false)
             setResultText(null)
+            setLoading(false)
     }
 
     const handleCloseModal = (isOpen: boolean) => {
@@ -105,17 +108,15 @@ function WelcomeComponent() {
             handleFileReset()
         }
     }
-    const msg = new SpeechSynthesisUtterance();
   
-    useEffect(() => {
-        if(resultText == null || msg == null) return
-        msg.text = resultText
-        window.speechSynthesis.speak(msg)
-      }, [resultText])
+    // useEffect(() => {
+    //     if(resultText == null ) return
+        
+    //   }, [resultText])
 
     useEffect(() => {
 
-    }, [Uploadedfiles])
+    }, [Uploadedfiles,fileReady])
   return (
     <div className='w-[1096px] h-[56px] mt-[30px] ml-[36px] flex justify-between items-center'>
         <div className="text__container w-[345px] gap-1 flex flex-col">
