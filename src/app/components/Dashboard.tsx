@@ -7,8 +7,7 @@ import RecentFiles from './RecentFiles'
 
 function Dashboard() {
   return (
-    <div className="w-full h-[1025px] left-[272px] bg-[#F9FAFB]">
-        <Header />
+    <div className="flex-[0.9] w-full min-h-screen bg-[#F9FAFB] flex flex-col items-center">
         <WelcomeComponent />
         <StatsComponent />
         <RecentFiles />

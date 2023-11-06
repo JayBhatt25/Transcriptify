@@ -12,9 +12,9 @@ import {
 function RecentFiles() {
      
   return (
-    <div className="w-[1096px] h-[559px] rounded-xl border p-6 gap-6  mt-10 ml-[36px] bg-white flex flex-col">
+    <div className="w-[90%] h-[559px] rounded-xl border p-6 gap-6  mt-10 ml-[36px] bg-white flex flex-col">
         <span className="font-Inter font-semibold text-lg leading-[21.6px]">Recent Files</span>
-        <hr className="w-[1048px] h-[1px]" />
+        <hr className="w-[85%] h-[1px]" />
         <Table>
             <TableHeader>
                 <TableRow className="border-none bg-[#EBF3FF] hover:bg-[#EBF3FF]">

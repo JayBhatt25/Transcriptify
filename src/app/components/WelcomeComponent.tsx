@@ -109,50 +109,48 @@ function WelcomeComponent() {
         }
     }
   
-    // useEffect(() => {
-    //     if(resultText == null ) return
-        
-    //   }, [resultText])
 
     useEffect(() => {
 
     }, [Uploadedfiles,fileReady])
   return (
-    <div className='w-[1096px] h-[56px] mt-[30px] ml-[36px] flex justify-between items-center'>
-        <div className="text__container w-[345px] gap-1 flex flex-col">
-            <h5 className='w-[300px] h-[29px] text-2xl font-semibold leading-[28.8px] font-Inter'>Welcome Shakirat</h5>
-            <span className='w-[345px] h-[23px] font-Inter text-sm '>Upload your audio and video to convert to text</span>
+    // 1096
+    <div className='w-[90%]  mt-[80px] ml-[36px] md:justify-between lg:items-center flex flex-col lg:flex-row'>
+        <div className="text__container w-[80%] gap-1 flex flex-col">
+            <h5 className='w-[300px] h-[29px] text-xl md:text-2xl font-semibold leading-[28.8px] font-Inter'>Welcome</h5>
+            <span className='w-[310px] h-[23px] font-Inter text-xs md:text-sm'>Upload your audio and video to convert to text</span>
         </div>
+        
         <Dialog modal={true}   onOpenChange={(open: boolean) => handleCloseModal(open)}>
-            <DialogTrigger className='w-[163px] h-[55px] rounded-[6px] px-[24px] py-[16px] gap-[10px] bg-[#0048AD] text-white'>Transcribe File</DialogTrigger>
-            <DialogContent className='min-w-[800px] h-[745px] rounded flex flex-col justify-between bg-[#FFFFFF]'>
+            <DialogTrigger className='w-[35%] h-[55px] rounded-[6px] px-[16px] py-[16px]  bg-[#0048AD] text-white text-xs md:text-lg'>Transcribe File</DialogTrigger>
+            <DialogContent className='min-w-[60%] h-[745px] rounded flex flex-col justify-between bg-[#FFFFFF] z-[100]'>
                 <DialogHeader className=''>
                 <DialogTitle>Transcribe File</DialogTitle>
                 </DialogHeader>
-                <div className="langueageInput__container flex flex-col w-[700px] h-[80px] gap-2">
-                    <span className='w-[159px] h-[20px] font-Inter font-medium text-sm leading-[20.3px] text-center'>Transcription Language</span>
-                    <div className="input__container w-[700px] h-[52px] rounded-[8px] border flex justify-between p-4 items-center">
+                <div className="langueageInput__container flex flex-col w-full h-[80px] gap-2">
+                    <span className='w-full h-[20px] font-Inter font-medium text-sm leading-[20.3px] text-start'>Transcription Language</span>
+                    <div className="input__container w-full h-[52px] rounded-[8px] border flex justify-between p-4 items-center">
                         <span>Default</span>
                         <BiChevronDown className='w-4 h-4' />
                     </div>
                 </div>
-                <div className='w-[700px] h-[200px] rounded-[8px] border px-[16px] py-[40px] gap-3'>
+                <div className='w-full h-[200px] rounded-[8px] border px-[16px] py-[40px] gap-3'>
                     
                     <Dropzone onDrop={(files) => handleFileDrop(files)} accept={fileTypes} >
                     {({getRootProps, getInputProps}) => (
-                        <section className='w-[668px] h-[120px] gap-4 flex flex-col items-center'>
+                        <section className='w-full h-[120px] gap-4 flex flex-col items-center'>
                             <div className="cloudIcon__container w-12 h-12 rounded-full bg-[#E0EDFF] items-center relative">
                                 <FiUploadCloud className='w-[24.55px] h-[24.55px] absolute top-[9.72px] left-[11.72px]' />
                             </div>
                             {Uploadedfiles?.length > 0 ? (
-                                <div className='w-[150px] flex justify-between'>
+                                <div className='w-full flex justify-between'>
                                     <span>{Uploadedfiles[0].name}</span>
                                     <button onClick={() => handleCancel()}><GrFormClose /></button>
                                 </div>
                                 
 
                             ):(
-                           
+                        
                             <div {...getRootProps()}>
                                 <input {...getInputProps()} ></input>
                                 <p className='text-center'><span className="text-[#0048AD] cursor-pointer">Click to upload</span> or drag and drop</p>
@@ -170,25 +168,27 @@ function WelcomeComponent() {
                     
                 </div>
 
-                <div className='w-[700px] h-[80px] gap-2 flex flex-col'>
+                <div className='w-full h-[80px] gap-2 flex flex-col'>
                     <span className='font-medium text-sm leading-[20.3px]'>Import from Link</span>
-                    <div className="import-from-link w-[700px] h-[52px] rounded-[8px] border p-4 gap-2">
+                    <div className="import-from-link w-full h-[52px] rounded-[8px] border p-4 gap-2">
                         <span className='text-[#98A2B3] text-sm leading-[20.3px]'>Paste a Drobpox, Google Drive or Youtube URL here</span>
                     </div>
                 </div>
                 
-                <div className="speakerIdentification__container w-[700px] h-[23px] gap-2 flex items-center">
+                <div className="speakerIdentification__container w-[60%] h-[23px] gap-2 flex items-center">
                     <input type="checkbox" />
                     <span>Speaker identification</span>
                 </div>
                 
                 {loading? (<span>loading....</span>):(
-                    <button className="w-[700px] h-[55px] rounded-[6px] py-4 px-6 gap-[10px]  disabled:bg-[#D0D5DD] text-white bg-[#0048AD]" disabled={!fileReady} onClick={() => handleTranscribe()}>Transcribe File</button>
+                    <button className="w-[90%] h-[55px] rounded-[6px] py-4 px-6 gap-[10px]  disabled:bg-[#D0D5DD] text-white bg-[#0048AD] ml-auto mr-auto" disabled={!fileReady} onClick={() => handleTranscribe()}>Transcribe File</button>
                 )}
                 
             </DialogContent>
             
         </Dialog>
+
+        
     </div>
   )
 }
