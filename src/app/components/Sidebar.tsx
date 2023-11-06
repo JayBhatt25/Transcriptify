@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import SidebarMenuItem from './SidebarMenuItem'
 import {HiOutlineRocketLaunch} from 'react-icons/hi2'
 import { useSelector } from 'react-redux'
@@ -53,9 +53,12 @@ function Sidebar() {
     ]
     const menuOpenState = useSelector((state: RootState) => state.menu.value)
     const dispatch = useAppDispatch()
-    const menu = document.querySelector('.sidebar')
+    useEffect(() => {
+
+    },[menuOpenState]);
     const handleMenuClose = () => {
-        if(menuOpenState) {
+        if(!menuOpenState) {
+            const menu = document.querySelector('.sidebar')
             dispatch(toggleMenu())
             menu?.classList.remove('visible')
             menu?.classList.add('hidden')

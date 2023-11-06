@@ -12,12 +12,16 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 function Header() {
     const menuOpenState = useSelector((state: RootState) => state.menu.value)
     const dispatch = useAppDispatch()
-    const menu = document.querySelector('.sidebar')
+   
+    const handleMenuOpen = () => {
+        const menu = document.querySelector('.sidebar')
+        dispatch(toggleMenu())
+        menu?.classList.remove('hidden')
+        menu?.classList.add('visible')
+    }
     const handleMenuToggle = () => {  
-        if(!menuOpenState){
-            dispatch(toggleMenu())
-            menu?.classList.remove('hidden')
-            menu?.classList.add('visible')
+        if(menuOpenState){
+           handleMenuOpen()
         }
         
     }
