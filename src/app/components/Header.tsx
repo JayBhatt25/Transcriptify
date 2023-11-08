@@ -20,7 +20,7 @@ function Header() {
         menu?.classList.add('visible')
     }
     const handleMenuToggle = () => {  
-        if(menuOpenState){
+        if(!menuOpenState){
            handleMenuOpen()
         }
         
@@ -38,7 +38,7 @@ function Header() {
             <div className="header__content  w-full flex
              justify-between max-h-10 h-auto items-center">
                 <span className="text-[#0048AD] font-bold font-GothamPro
-                 text-2xl leading-6 hidden sm:block">abc firm</span>
+                 text-2xl leading-6 hidden sm:block">Transcriptify</span>
                 <div className="content__left  w-[400px] max-h-10
                  h-auto gap-10">
                     

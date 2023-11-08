@@ -57,7 +57,7 @@ function Sidebar() {
 
     },[menuOpenState]);
     const handleMenuClose = () => {
-        if(!menuOpenState) {
+        if(menuOpenState) {
             const menu = document.querySelector('.sidebar')
             dispatch(toggleMenu())
             menu?.classList.remove('visible')
@@ -66,11 +66,11 @@ function Sidebar() {
         
     }
   return (
-    <div className="sidebar w-[400px] flex-[0.1] h-full flex-col justify-between items-center right-0 p-6 bg-[#FFFFFF] fixed z-[101]">
-        <div className="w-full h-[404px] gap-8 flex flex-col justify-between">
+    <div className="sidebar w-[400px] flex-[0.1] h-full flex-col justify-between items-center right-0 p-6 bg-[#FFFFFF] fixed z-[101] border-l hidden">
+        <div className="w-full h-[404px] gap-8 flex flex-col justify-between ">
             <div className="logo-container w-full h-[40px] rounded-[4px] px-[24px] py-[8px] gap-1 flex justify-between">
                 <span className="text-[#0048AD] font-bold font-GothamPro
-                 text-2xl leading-6">abc firm</span>
+                 text-2xl leading-6">Transcriptify</span>
                 <IoIosClose onClick={() => handleMenuClose()} className="w-5 h-5 cursor-pointer" />
             </div>
             <div className="sidebar-section w-4/5 h-[332px] px-2 gap-3">
@@ -83,7 +83,7 @@ function Sidebar() {
             <HiOutlineRocketLaunch className="w-6 h-6" />
             <div className="w-[100%] h-[45px] flex flex-col items-center gap-2">
                 <span className='w-[75%] h-[20px] font-Inter font-semibold text-sm leading-[20.3px] text-center text-[#101928]'>Upgrade Account</span>
-                <span className='w-full h-[17px] font-Inter font-normal text-xs leading-[17.3px]'>Access to Unlimited Transcription</span>
+                <span className='w-full h-[17px] font-Inter font-normal text-xs leading-[17.3px] text-center'>Access to Unlimited Transcription</span>
             </div>
             <button className='w-full h-[47px] rounded-md px-6 py-3 gap-[10px] bg-[#0048AD] text-white'>Upgrade</button>
         </div>
